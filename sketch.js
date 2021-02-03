@@ -9,8 +9,17 @@ let max_thick = 25.0; //the maximum thickness
 let curr_color;
 let curr_cap;
 
+var cnv;
+
+function centerCanvas() {
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+}
+
 function setup() {
-  createCanvas(800, 600);
+  cnv = createCanvas(800, 600);
+  centerCanvas();
   background(255);
 }
 
@@ -192,4 +201,8 @@ function keyPressed(){
       cap_selection = 0;
     }
   }
+}
+
+function windowResized() {
+  centerCanvas();
 }
